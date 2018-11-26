@@ -6,20 +6,25 @@ export class Timer extends React.Component {
       this.state = {
         minutesLimit : this.props.minutes - 1,
         minutesLeft : this.minutesLimit,
-        secondsLeft : 59
+        secondsLeft : 59,
+        status : 'fresh'
         }
         this.startTimer = this.startTimer.bind(this)
         this.resetTimer = this.resetTimer.bind(this)
+        this.pauseTimer = this.pauseTimer.bind(this)
+        this.renderStatus = this.renderStatus.bind(this)
       }
       startTimer(){
+        this.setState({status : this.state.status = 'active'})
         timer = setInterval(_=> {
            if( this.state.secondsLeft > 0 ) this.setState({secondsLeft : this.state.secondsLeft - 1})
            if( this.state.secondsLeft === 0 && this.state.minutesLeft > 0)
-            {this.setState({minutesLeft : minutesLeft - 1})
-            this.setState({secondsLeft : secondsLeft = 59 })}
+            {
+              this.setState({minutesLeft : minutesLeft - 1})
+              this.setState({secondsLeft : secondsLeft = 59 })
+          }
            if(this.state.secondsLeft === 0 && this.state.minutesLeft === 0)
            {
-             console.log('Times up!')
              clearInterval(timer)
            }
 
@@ -28,18 +33,32 @@ export class Timer extends React.Component {
       }
       pauseTimer(){
         clearInterval(timer)
+        this.setState({status : this.state.status = 'paused'})
       }
       resetTimer(){
         console.log(this.state.minutesLimit)
         this.setState({minutesLeft : this.state.minutesLimit})
         this.setState({secondsLeft : 59})
+        this.setState({status : this.state.status = 'fresh'})
+
+      }
+      renderStatus(){
+        switch(this.state.status) {
+          case 'active' :
+            return 'Activity in progress'
+          case 'paused' :
+            return 'Activity paused'
+          case 'fresh' :
+            return 'Ready to go'
+        }
       }
       render(){
-        let { minutesLeft, secondsLeft} = this.state
+        let { minutesLeft, secondsLeft, status} = this.state
         return (
           <div>
             <p>minutes left : {minutesLeft}</p>
             <p>seconds left : {secondsLeft}</p>
+            <p>{this.renderStatus()}</p>
               <button onClick={this.startTimer}>Start</button>
               <button onClick={this.pauseTimer}>Pause</button>
               <button onClick={this.resetTimer}>Reset</button>
