@@ -59,9 +59,9 @@ export class Timer extends React.Component {
             <p>minutes left : {minutesLeft}</p>
             <p>seconds left : {secondsLeft}</p>
             <p>{this.renderStatus()}</p>
-              <button onClick={this.startTimer}>Start</button>
-              <button onClick={this.pauseTimer}>Pause</button>
-              <button onClick={this.resetTimer}>Reset</button>
+            <button disabled={status === 'active' ? true : false} onClick={this.startTimer}>Start</button>
+            <button disabled={status === 'paused' ? true : false} onClick={this.pauseTimer}>Pause</button>
+            <button disabled={status === 'active' ? true : false} onClick={this.resetTimer}>Reset</button>
           </div>
         )
       }
