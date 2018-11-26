@@ -20,8 +20,10 @@ export class Timer extends React.Component {
            if( this.state.secondsLeft > 0 ) this.setState({secondsLeft : this.state.secondsLeft - 1})
            if( this.state.secondsLeft === 0 && this.state.minutesLeft > 0)
             {
-              this.setState({minutesLeft : minutesLeft - 1})
-              this.setState({secondsLeft : secondsLeft = 59 })
+              this.setState({
+                minutesLeft : minutesLeft - 1,
+                secondsLeft : secondsLeft = 59
+              })
           }
            if(this.state.secondsLeft === 0 && this.state.minutesLeft === 0)
            {
@@ -36,11 +38,11 @@ export class Timer extends React.Component {
         this.setState({status : this.state.status = 'paused'})
       }
       resetTimer(){
-        console.log(this.state.minutesLimit)
-        this.setState({minutesLeft : this.state.minutesLimit})
-        this.setState({secondsLeft : 59})
-        this.setState({status : this.state.status = 'fresh'})
-
+        this.setState({
+          minutesLeft : this.state.minutesLimit,
+          secondsLeft : 59,
+          status : this.state.status = 'fresh'
+        })
       }
       renderStatus(){
         switch(this.state.status) {

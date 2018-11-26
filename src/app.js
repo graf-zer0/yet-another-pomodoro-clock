@@ -14,5 +14,8 @@ Settings.defaultProps = {
   minValue : 0,
   maxValue : 60
 }
+Timer.defaultProps = {
+  minutes : 25
+}
 
 ReactDom.render(<Timer minutes={1}/>, testDiv)
