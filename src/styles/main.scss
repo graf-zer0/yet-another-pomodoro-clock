@@ -1,8 +1,51 @@
+@for $i from 2 to 20 {
+  .ml-#{$i}{margin-left : $i * 1px}
+  .mr-#{$i}{margin-right : $i * 1px}
+  .mt-#{$i}{margin-top : $i * 1px}
+  .mb-#{$i}{margin-bottom : $i * 1px}
+}
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-row{
+  display: flex;
+  flex-flow: row;
+}
 *{
   margin : 0;
   pading : 0;
 }
-body { 
+body {
   width: 100vw;
   height: 100vh;
+  padding: 15px;
+}
+
+#testDiv {
+  width: 20vw;
+  height: 15vh;
+  padding : 5px;
+}
+.grid-2-2{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 1fr;
+}
+.col-1-2{
+  grid-column: 1/2
+}
+.col-2-3{
+  grid-column: 2/3
+}
+.row-1-2{
+  grid-row : 1/2;
+}
+.row-1-3{
+  grid-row : 1/3;
+}
+.row-2-3{
+  grid-row: 2/3;
 }

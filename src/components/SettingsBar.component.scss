@@ -1,0 +1,56 @@
+/**
+**** BUTTONS SECTION
+*/
+$btn-col : black;
+$btn-danger-col : red;
+$btn-success-col : green;
+$btn-bckg-col : blue;
+$btn-font-size : 12px;
+$btn-padding-x : 0;
+$btn-padding-y : 0;
+
+@mixin square ($x){
+  width : $x;
+  height: $x;
+}
+@mixin rect ($x){
+  width: $x;
+  height: $x * 0.5;
+}
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin btn-size($btn-font-size, $btn-pad-x, $btn-pad-y){
+  font-size : $btn-font-size;
+  padding : $btn-pad-y $btn-pad-x;
+}
+.btn-danger{
+  background-color: $btn-danger-col
+}
+.btn-success{
+  background-color: $btn-success-col
+}
+.btn{
+  border : none;
+  text-decoration: none;
+  border-radius: 6px;
+  background-color: $btn-bckg-col;
+  color : $btn-col;
+  @include flex-center
+  @include btn-size($btn-font-size, $btn-padding-x, $btn-padding-y)
+  &:not(:disabled):not(.disabled){
+    cursor: pointer;
+  }
+}
+.btn-sm{
+  @include rect(5vw);
+}
+
+.pm-container{
+  width: 14vw;
+}
+.pm-displayer{
+  @include rect(4vw);
+}
