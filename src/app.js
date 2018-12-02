@@ -5,6 +5,7 @@ import ReactDom from 'react-dom'
 import { Settings } from './components/PlusMinus.component.js'
 import { Timer } from './components/Timer.component.js'
 import './components/SettingsBar.component.scss'
+import './components/Timer.component.scss'
 
 const byId = elem => document.getElementById(elem)
 const testDiv = byId('testDiv')

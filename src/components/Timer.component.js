@@ -57,13 +57,21 @@ export class Timer extends React.Component {
       render(){
         let { minutesLeft, secondsLeft, status} = this.state
         return (
-          <div>
-            <p>minutes left : {minutesLeft}</p>
-            <p>seconds left : {secondsLeft}</p>
-            <p>{this.renderStatus()}</p>
-            <button disabled={status === 'active' ? true : false} onClick={this.startTimer}>Start</button>
-            <button disabled={status === 'paused' ? true : false} onClick={this.pauseTimer}>Pause</button>
-            <button disabled={status === 'active' ? true : false} onClick={this.resetTimer}>Reset</button>
+          <div className="grid-wrapper">
+            <p className="g-r1-full flex-center">{minutesLeft} : {secondsLeft}</p>
+            <p className="g-r2-full flex-center">{this.renderStatus()}</p>
+            <button
+              className='g-r3-c1'
+              disabled={status === 'active' ? true : false} onClick={this.startTimer}>Start
+            </button>
+            <button
+              className='g-r3-c2'
+              disabled={status === 'paused' ? true : false} onClick={this.pauseTimer}>Pause
+            </button>
+            <button
+              className='g-r4-full'
+              disabled={status === 'active' ? true : false} onClick={this.resetTimer}>Reset
+            </button>
           </div>
         )
       }
