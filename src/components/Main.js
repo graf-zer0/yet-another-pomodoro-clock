@@ -2,14 +2,16 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Counter } from './Counter.component.js'
+
 import { Timer } from './Timer.component.js'
+
 
 export class Main extends React.Component{
   constructor(){
     super();
     this.state = {
       breakLength : 5,
-      sessionLength : 22
+      sessionLength : 5
     }
     this.getLength = this.getLength.bind(this)
     this.incrementLength = this.incrementLength.bind(this)
@@ -41,7 +43,7 @@ export class Main extends React.Component{
         <Counter
           label = "Session length"
           minValue ={ 0 }
-          maxValue ={ 60 }
+          maxValue ={ 10 }
           value={ getLength('sessionLength') }
           onIncrement={ _ => incrementLength('sessionLength') }
           onDecrement={ _ => decrementLength('sessionLength') }
