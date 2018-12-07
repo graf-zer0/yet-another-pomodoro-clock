@@ -5,14 +5,8 @@ import './Timer.style.scss'
   const zeroFill = time => time < 10 ? `0${time}` : `${time}`
   const getFullMinutes = sec => sec > 60 ? Math.floor( sec / 60 ) : 0
   const getRestSeconds = sec => sec > 60 ? sec % 60 : sec
-
   const convertTime = sec => `${ zeroFill( getFullMinutes(sec) ) } : ${ zeroFill( getRestSeconds(sec) ) } `
-  const timer = time => {
-    let interval = setInterval( _ => {
-      if( time === 0 ) clearInterval( interval )
-        time --
-      }, 1000)
-    }
+
 
   export const Timer = ({
       currentTime,
@@ -23,7 +17,10 @@ import './Timer.style.scss'
     }) =>
     (
       <div className="grid-wrapper">
-        <p className="timer-displayer g-r1-full flex-center">{ convertTime( currentTime ) }</p>
+        <p
+          className = { `timer-displayer g-r1-full flex-center ${currentTime < 60 ? 'txt-red' : 'txt-black'}` } >
+          { convertTime( currentTime ) }
+        </p>
         <button
           className='btn btn-success g-r3-c1'
             onClick={ active ? handlePause : handleStart }>

@@ -5,12 +5,12 @@ import { Counter } from './Counter.component.js'
 
 import { Timer } from './Timer.component.js'
 
-const toMinutes = sec => Math.floor( sec / 60 )
+//const toMinutes = sec => Math.floor( sec / 60 )
 let sessionID = null
 let breakID = null
 export class Main extends React.Component{
-  constructor(props){
-    super(props);
+  constructor( props ) {
+    super( props );
     this.state = {
       defaultBreakLength : 300,
       defaultSessionLength : 1500,
@@ -121,14 +121,20 @@ export class Main extends React.Component{
 
   pauseTimer() {
 
-    if(this.state.mode === 'session' ) clearInterval(sessionID)
-    else clearInterval(breakID)
+    if(this.state.mode === 'session' ) clearInterval( sessionID )
+    else clearInterval( breakID )
     this.setActive( false )
 
   }
   resetTimer() {
 
-    let { defaultSessionLength, defaultBreakLength, sessionLength, breakLength, mode } = this.state
+    let {
+      defaultSessionLength,
+      defaultBreakLength,
+      sessionLength,
+      breakLength,
+      mode
+    } = this.state
 
     if( mode === 'session') clearInterval( sessionID )
     else if( mode === 'break') clearInterval( breakID )
@@ -136,7 +142,7 @@ export class Main extends React.Component{
     sessionLength = defaultSessionLength
     breakLength = defaultBreakLength
 
-    this.setMode('fresh')
+    this.setMode( 'fresh' )
     this.setTimer( sessionLength )
     this.setState({ sessionLength, breakLength })
     this.setActive( false )
@@ -168,16 +174,16 @@ export class Main extends React.Component{
           minValue ={ 0 }
           maxValue ={ 10 }
           value={ sessionLength / 60 }
-          onIncrement={ _ => incrementLength('sessionLength') }
-          onDecrement={ _ => decrementLength('sessionLength') }
+          onIncrement={ () => incrementLength('sessionLength') }
+          onDecrement={ () => decrementLength('sessionLength') }
           />
         <Counter
             label = "Break length"
             minValue ={ 0 }
             maxValue ={ 10 }
             value={ breakLength / 60 }
-            onIncrement={ _ => incrementLength('breakLength') }
-            onDecrement={ _ => decrementLength('breakLength') }
+            onIncrement={ () => incrementLength('breakLength') }
+            onDecrement={ () => decrementLength('breakLength') }
             />
           <Timer
             active = { active }
