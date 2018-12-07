@@ -5,7 +5,6 @@ import { Counter } from './Counter.component.js'
 
 import { Timer } from './Timer.component.js'
 
-//const toMinutes = sec => Math.floor( sec / 60 )
 let sessionID = null
 let breakID = null
 export class Main extends React.Component{
@@ -17,7 +16,7 @@ export class Main extends React.Component{
       breakLength : 0,
       sessionLength : 0,
       currentTime : 0,
-      mode : 'fresh',
+      mode : 'ready',
       active : false
     }
 
@@ -110,7 +109,7 @@ export class Main extends React.Component{
 
     this.setActive( true )
 
-    if( mode === 'fresh') {
+    if( mode === 'ready') {
       this.setTimer( sessionLength )
       this.setMode( 'session' )
       this.startSession()
@@ -142,7 +141,7 @@ export class Main extends React.Component{
     sessionLength = defaultSessionLength
     breakLength = defaultBreakLength
 
-    this.setMode( 'fresh' )
+    this.setMode( 'ready' )
     this.setTimer( sessionLength )
     this.setState({ sessionLength, breakLength })
     this.setActive( false )
@@ -168,31 +167,33 @@ export class Main extends React.Component{
     } = this.state
 
     return (
-      <div>
-        <Counter
-          label = "Session length"
-          minValue ={ 0 }
-          maxValue ={ 10 }
-          value={ sessionLength / 60 }
-          onIncrement={ () => incrementLength('sessionLength') }
-          onDecrement={ () => decrementLength('sessionLength') }
-          />
-        <Counter
-            label = "Break length"
+      <div className="full-width">
+        <div className = "flex-row space-arnd full-width mb-20">
+          <Counter
+            label = "Session length"
             minValue ={ 0 }
             maxValue ={ 10 }
-            value={ breakLength / 60 }
-            onIncrement={ () => incrementLength('breakLength') }
-            onDecrement={ () => decrementLength('breakLength') }
+            value={ sessionLength / 60 }
+            onIncrement={ () => incrementLength('sessionLength') }
+            onDecrement={ () => decrementLength('sessionLength') }
             />
-          <Timer
+            <Counter
+              label = "Break length"
+              minValue ={ 0 }
+              maxValue ={ 10 }
+              value={ breakLength / 60 }
+              onIncrement={ () => incrementLength('breakLength') }
+              onDecrement={ () => decrementLength('breakLength') }
+              />
+          </div>
+          <Timer className = "full-width"
             active = { active }
-            currentTime = { mode === 'fresh' ? sessionLength : currentTime }
+            mode = { mode }
+            currentTime = { mode === 'ready' ? sessionLength : currentTime }
             handleStart = { startTimer }
             handlePause = { pauseTimer }
             handleReset = { resetTimer }
             />
-          <p>{ mode }</p>
       </div>
     )
   }

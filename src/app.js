@@ -6,8 +6,9 @@ import { Main } from './components/Main.js'
 
 import './styles/main.css'
 import './styles/main.scss'
+import './styles/utility.scss'
 
 const byId = elem => document.getElementById(elem)
-const testDiv = byId('testDiv')
+const targetDiv = byId('react-app-pomodoro')
 
-ReactDom.render(<Main />, testDiv)
+ReactDom.render(<Main />, targetDiv)

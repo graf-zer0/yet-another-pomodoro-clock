@@ -1,5 +1,7 @@
-$mainFont : 'Orbitron', sans-serif;
-$mainFont-size : 45px;
+
+
+
+$orbitron : 'Orbitron', sans-serif;
 .grid-wrapper{
 
   width: 40vw;
@@ -7,13 +9,14 @@ $mainFont-size : 45px;
   display: grid;
   grid-template-rows: 35% 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  grid-row-gap: 4vmin;
+  grid-row-gap: 5vmin;
   grid-column-gap: 4vmin;
-  font-family: $mainFont;
+  font-family: $orbitron;
+  
 
 }
 .timer-displayer{
-  font-size: $mainFont-size;
+  font-family : $orbitron;
 }
 .g-r1-full{
   grid-row: 1/2;

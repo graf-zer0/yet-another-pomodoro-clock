@@ -1,0 +1,93 @@
+/*
+** Reset default options mixin
+*/
+
+@mixin resetDefaults {
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+/**
+** Margin and padding classes generators
+*/
+
+@for $i from 1 to 21 {
+  .ml-#{$i}{margin-left : $i * 1px}
+  .mr-#{$i}{margin-right : $i * 1px}
+  .mt-#{$i}{margin-top : $i * 1px}
+  .mb-#{$i}{margin-bottom : $i * 1px}
+}
+
+@for $i from 1 to 21 {
+  .padl-#{$i}{padding-left : $i * 1px}
+  .padr-#{$i}{padding-right : $i * 1px}
+  .padt-#{$i}{padding-top : $i * 1px}
+  .padb-#{$i}{padding-bottom : $i * 1px}
+}
+
+
+/*
+** Font size classes
+*/
+
+$font-big : 15vmin;
+$font-medium : 10vmin;
+$font-small : 5vmin;
+$font-xsmall : 3vmin;
+$font-xxsmall : 2vmin;
+
+.txt-xxsmall {
+  font-size : $font-xxsmall;
+}
+.txt-xsmall {
+  font-size : $font-xsmall;
+}
+.txt-small {
+  font-size: $font-small;
+}
+.txt-medium {
+font-size : $font-medium;
+}
+.txt-big {
+  font-size: $font-big;
+}
+
+/*
+** Flex-box classes
+*/
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-row{
+  display: flex;
+  flex-flow: row;
+}
+.flex-col {
+  display: flex;
+  flex-flow: column;
+}
+.flex-start {
+  justify-content: flex-start;
+}
+.flex-end {
+  justify-content: flex-end;
+}
+.space-btwn {
+  justify-content: space-between;
+}
+.space-arnd {
+  justify-content: space-around;
+}
+.align-center {
+  align-items: center;
+}
+
+.full-width {
+
+  width : 100%;
+}

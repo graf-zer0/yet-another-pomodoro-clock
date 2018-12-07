@@ -1,10 +1,58 @@
-@for $i from 2 to 20 {
-  .ml-#{$i}{margin-left : $i * 1px}
-  .mr-#{$i}{margin-right : $i * 1px}
-  .mt-#{$i}{margin-top : $i * 1px}
-  .mb-#{$i}{margin-bottom : $i * 1px}
-}
 
+
+$orbitron : 'Orbitron', sans-serif;
+$bungee :  'Bungee', cursive;
+
+$btn-col : black;
+$btn-danger-col : #E50913;
+$btn-success-col : #17C071;
+$btn-bckg-col : #1DA1F2;
+$btn-font-size : 12px;
+$btn-padding-x : 0;
+$btn-padding-y : 0;
+
+$mainFont-size : 15vmin;
+$font-big : 15vmin;
+$font-medium : 10vmin;
+$font-small : 5vmin;
+$font-xsmall : 3vmin;
+$font-xxsmall : 2vmin;
+
+/*
+.txt-xxsmall {
+  font-size : $font-xxsmall;
+}
+.txt-xsmall {
+  font-size : $font-xsmall;
+}
+.txt-small {
+  font-size: $font-small;
+}
+.txt-medium {
+font-size : $font-medium;
+}
+.txt-big {
+  font-size: $font-big;
+}
+*/
+@mixin square ($x){
+  width : $x;
+  height: $x;
+}
+@mixin rect ($x){
+  width: $x;
+  height: $x * 0.5;
+}
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin btn-size($btn-font-size, $btn-pad-x, $btn-pad-y){
+  font-size : $btn-font-size;
+  padding : $btn-pad-y $btn-pad-x;
+}
+/*
 .flex-center{
   display: flex;
   align-items: center;
@@ -14,38 +62,49 @@
   display: flex;
   flex-flow: row;
 }
-*{
+*/
+* {
   margin : 0;
   pading : 0;
 }
+
 body {
   width: 100vw;
   height: 100vh;
-  padding: 15px;
+  font-family: $bungee;
+}
+header {
+  height: 10vh;
+  background-color: blue;
 }
 
-#testDiv {
-  width: 20vw;
-  height: 15vh;
-  padding : 5px;
+
+#react-app-pomodoro {
+  width: 50vw;
+  height: 80vh;
+  margin: auto;
 }
-.grid-2-2{
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: auto 1fr;
+footer {
+  height: 10vh;
+  background-color: blue;
 }
-.col-1-2{
-  grid-column: 1/2
+.btn{
+  border-radius: 6px;
+  background-color: $btn-bckg-col;
+  color : $btn-col;
+  @include flex-center;
+  &:not(:disabled):not(.disabled){
+  cursor: pointer;
+  font-family: $bungee;
+  }
 }
-.col-2-3{
-  grid-column: 2/3
+
+.btn-danger{
+  background-color: $btn-danger-col
 }
-.row-1-2{
-  grid-row : 1/2;
+.btn-success{
+  background-color: $btn-success-col
 }
-.row-1-3{
-  grid-row : 1/3;
-}
-.row-2-3{
-  grid-row: 2/3;
+.btn-sm{
+  @include rect(5vw);
 }
