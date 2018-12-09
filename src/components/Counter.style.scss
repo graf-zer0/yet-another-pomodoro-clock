@@ -8,7 +8,6 @@
 
 $bungee :  'Bungee', cursive;
 
-
 button {
   border : none;
   text-decoration: none;
@@ -19,12 +18,35 @@ button:disabled{
 
 .counter-container{
   
-  width: 14vw;
+  width: auto;
   font-size: 20px;
   font-family : $bungee;
-
-
 }
 .counter-displayer{
+
   @include rect(4vw);
+}
+.lg-container {
+
+  display: grid;
+  grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+  grid-template-areas:
+      "a a a"
+      "b c d"
+
+}
+.lg-1-full {
+  grid-area: a;
+}
+.lg-2-c {
+  grid-area : c;
+
+}
+
+.lg-2-l {
+  grid-area : b;
+
+}
+.lg-2-r {
+  grid-area : d;
 }

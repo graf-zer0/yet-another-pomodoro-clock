@@ -11,14 +11,14 @@ export const Counter =
     onIncrement,
     onDecrement
   }) => (
-  <div className="counter-container">
-    <p className = "flex-center mb-15">{ label }</p>
-    <div className="flex-row">
-      <button onClick={ onDecrement } className="btn btn-sm"
+  <div className="counter-container lg-container">
+    <p className = "flex-center mb-15 lg-1-full">{ label }</p>
+      <button onClick={ onDecrement }
+        className = "btn btn-sm lg-2-l"
         disabled={ value === minValue ? true : false }>-</button>
-      <div className="counter-displayer flex-center"><span>{value}</span></div>
-      <button onClick={ onIncrement } className="btn btn-sm"
+      <div className="counter-displayer lg-2-c flex-center"><span>{value}</span></div>
+      <button onClick={ onIncrement }
+        className="btn btn-sm lg-2-r"
         disabled={ value === maxValue ? true : false }>+</button>
-    </div>
   </div>
 )

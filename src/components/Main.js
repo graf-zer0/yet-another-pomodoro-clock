@@ -159,6 +159,8 @@ export class Main extends React.Component{
     } = this
 
     const {
+      defaultSessionLength,
+      defaultBreakLength,
       sessionLength,
       breakLength,
       currentTime,
@@ -171,16 +173,16 @@ export class Main extends React.Component{
         <div className = "flex-row space-arnd full-width mb-20">
           <Counter
             label = "Session length"
-            minValue ={ 0 }
-            maxValue ={ 10 }
+            minValue ={ 1 }
+            maxValue ={ defaultSessionLength }
             value={ sessionLength / 60 }
             onIncrement={ () => incrementLength('sessionLength') }
             onDecrement={ () => decrementLength('sessionLength') }
             />
             <Counter
               label = "Break length"
-              minValue ={ 0 }
-              maxValue ={ 10 }
+              minValue ={ 1 }
+              maxValue ={ defaultBreakLength }
               value={ breakLength / 60 }
               onIncrement={ () => incrementLength('breakLength') }
               onDecrement={ () => decrementLength('breakLength') }
