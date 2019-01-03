@@ -3,7 +3,16 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { Counter } from './Counter.component.js'
 
-import { Timer } from './Timer.component.js'
+import {
+
+  TimeDisplayer,
+  StatusDisplayer,
+  StartStopBtn,
+  ResetBtn
+
+} from './Timer.components.js'
+
+import { Footer } from './Footer.component.js'
 
 let sessionID = null
 let breakID = null
@@ -169,9 +178,11 @@ export class Main extends React.Component{
     } = this.state
 
     return (
-      <div className="full-width">
-        <div className = "flex-row space-arnd full-width mb-20">
+      <div className="layout-wrapper layout-grid">
+
+          <header className="row-1-2 col-1-13"></header>
           <Counter
+            position = "row-2-3 col-2-6"
             label = "Session length"
             minValue ={ 1 }
             maxValue ={ defaultSessionLength }
@@ -179,7 +190,8 @@ export class Main extends React.Component{
             onIncrement={ () => incrementLength('sessionLength') }
             onDecrement={ () => decrementLength('sessionLength') }
             />
-            <Counter
+          <Counter
+              position = "row-2-3 col-8-12"
               label = "Break length"
               minValue ={ 1 }
               maxValue ={ defaultBreakLength }
@@ -187,15 +199,28 @@ export class Main extends React.Component{
               onIncrement={ () => incrementLength('breakLength') }
               onDecrement={ () => decrementLength('breakLength') }
               />
-          </div>
-          <Timer className = "full-width"
+            <StatusDisplayer
+              position = "row-4-5 col-1-13"
+              status = { mode }
+            />
+          <StartStopBtn
+            position = "row-5-6 col-3-6"
             active = { active }
-            mode = { mode }
-            currentTime = { mode === 'ready' ? sessionLength : currentTime }
             handleStart = { startTimer }
             handlePause = { pauseTimer }
-            handleReset = { resetTimer }
             />
+          <ResetBtn
+              position = "row-5-6 col-8-11"
+              active = { active }
+              handleReset = { resetTimer }
+              />
+            <TimeDisplayer
+              time = { mode === 'ready' ? sessionLength : currentTime }
+              position = "row-3-4 col-1-13"
+            />
+          <Footer
+            position = "row-6-7 col-1-13"
+          />
       </div>
     )
   }

@@ -1,6 +1,5 @@
 
 import React from 'react'
-import './Counter.style.scss'
 
 export const Counter =
   ({
@@ -9,16 +8,21 @@ export const Counter =
     minValue,
     maxValue,
     onIncrement,
-    onDecrement
+    onDecrement,
+    position
   }) => (
-  <div className="counter-container lg-container">
-    <p className = "flex-center mb-15 lg-1-full">{ label }</p>
-      <button onClick={ onDecrement }
-        className = "btn btn-sm lg-2-l"
-        disabled={ value === minValue ? true : false }>-</button>
-      <div className="counter-displayer lg-2-c flex-center"><span>{value}</span></div>
-      <button onClick={ onIncrement }
-        className="btn btn-sm lg-2-r"
-        disabled={ value === maxValue ? true : false }>+</button>
-  </div>
+    <div className={`counter-container flex-column space-between ${position}`}>
+      <p className="counter-label flex-center">{ label }</p>
+      <div className="height-70 flex-row space-between align-center">
+        <button className="counter-btn flex-center"
+          onClick={ onIncrement }
+          disabled={ value === maxValue ? true : false }>+</button>
+        <p className="counter-displayer flex-center"><span>{value}</span></p>
+        <button
+          className="counter-btn flex-center"
+          onClick={ onDecrement }
+          disabled={ value === minValue ? true : false }>-
+        </button>
+      </div>
+    </div>
 )

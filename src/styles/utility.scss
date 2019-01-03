@@ -9,6 +9,18 @@
   box-sizing: border-box;
 
 }
+/*
+** Default buttons config
+*/
+
+button {
+  border : none;
+  text-decoration: none;
+}
+button:disabled{
+  opacity: 0.6;
+}
+
 /**
 ** Margin and padding classes generators
 */
@@ -27,36 +39,39 @@
   .padb-#{$i}{padding-bottom : $i * 1px}
 }
 
-
 /*
-** Font size classes
+** Font size classes generator
 */
 
-$font-big : 15vmin;
-$font-medium : 10vmin;
-$font-small : 5vmin;
-$font-xsmall : 3vmin;
-$font-xxsmall : 2vmin;
-
-.txt-xxsmall {
-  font-size : $font-xxsmall;
+@for $i from 1 to 11 {
+  .fsize-#{$i}{font-size: $i/2 * 1em}
 }
-.txt-xsmall {
-  font-size : $font-xsmall;
-}
-.txt-small {
-  font-size: $font-small;
-}
-.txt-medium {
-font-size : $font-medium;
-}
-.txt-big {
-  font-size: $font-big;
+@for $i from 1 through 100 {
+  .height-#{$i}{ height: $i * 1% }
 }
 
 /*
-** Flex-box classes
+** GRID CLASSES
 */
+
+@for $i from 1 through 12 {
+  @for $j from 2 through 13{
+    .row-#{$i}-#{$j} {
+      grid-row-start : $i;
+      grid-row-end : $j;
+     }
+  }
+}
+
+@for $i from 1 through 12 {
+  @for $j from 2 through 13{
+    .col-#{$i}-#{$j} {
+      grid-column-start: $i;
+      grid-column-end : $j;
+    }
+  }
+}
+
 
 .flex-center{
   display: flex;
@@ -90,4 +105,11 @@ font-size : $font-medium;
 .full-width {
 
   width : 100%;
+}
+
+.txt-black {
+  color: black;
+}
+.txt-red {
+  color : red;
 }

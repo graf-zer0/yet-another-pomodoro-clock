@@ -1,0 +1,127 @@
+$font-basic : 4vh;
+$font-mobile : 5vw;
+$font-xs : 1.2em;
+$font-s : 1.3em;
+$font-m : 1.5em;
+$font-l : 1.8em;
+$font-xl : 2em;
+$font-xxl : 5em;
+
+* {
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  padding : 5vmin;
+  font-size : $font-basic
+}
+/*
+*****************************************
+     ***  Layout section ***
+*****************************************
+*/
+
+.layout-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.layout-grid {
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr 2.5fr 3fr 1fr 1.5fr 1fr;
+  grid-row-gap : 5vmin;
+}
+/*
+*****************************************
+     ***  Header component section ***
+*****************************************
+*/
+
+header {
+
+  font-size: $font-l;
+  background-color: red;
+
+}
+
+/*
+*****************************************
+     ***  Counter component section ***
+*****************************************
+*/
+
+.counter-label {
+
+  font-size: $font-xs;
+}
+
+.counter-btn {
+
+  width: 30%;
+  height: 60%;
+  background-color: aqua;
+  font-size: $font-m;
+  font-weight: bold;
+}
+
+.counter-displayer{
+
+  width: 30%;
+  height: 60%;
+  font-size: 1.5em;
+
+}
+
+/*
+*****************************************
+     ***  timer components section ***
+*****************************************
+*/
+
+#time-displayer {
+
+  font-size: $font-xxl;
+}
+#timer-status {
+  font-size : $font-s;
+}
+
+/*
+*****************************************
+     ***  Footer component section ***
+*****************************************
+*/
+
+footer {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+@media screen and (orientation : portrait){
+  body {
+    font-size : $font-mobile;
+  }
+  .layout-grid {
+    grid-template-rows: 1.5fr 2fr 3fr 1fr 1fr 1.5fr;
+  }
+  header {
+    font-size : $font-m;
+  }
+  .counter-label {
+    font-size : $font-mobile;
+  }
+  .counter-displayer {
+    font-size: $font-mobile;
+  }
+  #timer-status {
+    font-size : $font-xs;
+  }
+}
